@@ -1,0 +1,23 @@
+<!-- Header fijo arriba -->
+<app-header [showBack]='false'></app-header>
+
+<!-- Card contenedora del contenido -->
+<div class="main-wrapper">
+  <div class="background-image"></div>
+
+  <div class="home-container">
+    <!-- Hero: Bienvenida -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>
+          Welcome to Dog Spotter
+          <i class="fas fa-paw paw-icon"></i>
+        </h1>
+        <p>Discover stylishly hundreds of dog breeds.</p>
+      </div>
+    </section>
+
+    <!-- Lista de razas -->
+    <app-popular-breeds></app-popular-breeds>
+  </div>
+</div>
