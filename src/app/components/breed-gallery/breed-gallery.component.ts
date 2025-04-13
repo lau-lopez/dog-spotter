@@ -24,9 +24,9 @@ export class BreedGalleryComponent implements OnInit {
   breedName: string = '';
   images: string[] = [];
   paginatedImages: string[] = [];
-  length: number = 0; // Total number of items
-  pageSize: number = 10; // Items per page
-  currentPage: number = 0; // Current page
+  length: number = 0;
+  pageSize: number = 10;
+  currentPage: number = 0;
 
   constructor(private route: ActivatedRoute, private dogService: DogService, private paginationService: PaginationService, private dialog: MatDialog) {}
 

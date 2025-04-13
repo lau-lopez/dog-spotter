@@ -26,7 +26,7 @@ import { ImageDialogComponent } from '../../shared/components/image-dialog/image
 export class SubBreedGalleryComponent implements OnInit {
   breed: string = '';
   subbreed: string = '';
-  title: string = 'Galería';
+  title: string = 'Gallery';
   showBackButton: boolean = false;
   images: string[] = [];
   loading: boolean = true;

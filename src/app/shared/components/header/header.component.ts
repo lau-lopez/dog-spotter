@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.searchControl.valueChanges
     .pipe(
-      filter((value: any): value is string => value !== null) // esto asegura que el valor no sea null
+      filter((value: any): value is string => value !== null)
     )
     .subscribe((value: string) => {
       this.search.emit(value);

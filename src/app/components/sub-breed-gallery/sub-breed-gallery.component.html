@@ -6,13 +6,13 @@
 
     <div class="card-gallery" *ngIf="!loading && images.length > 0" [ngClass]="{ 'single-image': paginatedImages.length === 1 }">
       <mat-card *ngFor="let image of paginatedImages" class="image-card" (click)="openImageDialog(image)">
-        <img mat-card-image [src]="image" alt="Imagen de {{ subbreed }}" />
+        <img mat-card-image [src]="image" alt="{{ subbreed }} Image" />
       </mat-card>
     </div>
 
-    <p *ngIf="!loading && images.length === 0">No se encontraron imágenes.</p>
+    <p *ngIf="!loading && images.length === 0">No images found.</p>
 
-    <app-paginator
+    <app-paginator *ngIf="images.length > 12"
     [length]="length"
     [pageSize]="pageSize"
     [pageSizeOptions]="[5, 10, 20]"

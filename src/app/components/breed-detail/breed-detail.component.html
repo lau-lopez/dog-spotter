@@ -1,15 +1,15 @@
 <div class="main-wrapper">
 
   <div class="home-container">
-    <app-header  [showFilter] ='true' ></app-header>
+    <app-header [searchType]="'subbreed'" [subBreedOptions]="subBreeds" (search)="onBreedSearch($event)" [showFilter] ='true' ></app-header>
 
     <div class="title-section">
-      <h2>Subrazas de {{ breedName }}</h2>
+      <h2>{{ breedName }} Sub-breeds</h2>
     </div>
 
     <!-- Mostrar las subrazas solo si no estamos cargando y hay subrazas -->
-    <div class="breed-grid" [ngClass]="{ 'single-image': subBreeds.length === 1 }" *ngIf="!loading && subBreeds.length > 0">
-      <mat-card *ngFor="let sub of subBreeds" class="breed-card"  (click)="viewGallery(breedName, sub.name)">
+    <div class="breed-grid" [ngClass]="{ 'single-image': subBreedsAux.length === 1 }" *ngIf="!loading && subBreedsAux.length > 0">
+      <mat-card *ngFor="let sub of subBreedsAux" class="breed-card"  (click)="viewGallery(breedName, sub.name)">
         <img mat-card-image *ngIf="sub.image" [src]="sub.image" alt="{{ sub.name }}" />
         <mat-card-content>
           <h3>{{ sub.name }}</h3>
@@ -29,8 +29,8 @@
     </div>
 
     <!-- Si no hay subrazas, mostrar un mensaje -->
-    <div *ngIf="!loading && subBreeds.length === 0">
-      <p>No hay subrazas disponibles para esta raza.</p>
+    <div *ngIf="!loading && subBreedsAux.length === 0">
+      <p>No sub-breeds available for this breed.</p>
     </div>
   </div>
 </div>

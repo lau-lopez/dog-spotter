@@ -121,8 +121,6 @@ export class AllBreedsComponent implements OnInit {
   }
 
   onBreedSearch(term: any): void {
-    console.log('Buscando:', term);
-    // Aquí puedes filtrar `allBreeds` o llamar a un servicio
 
     const filterbreeds = this.allBreeds.filter(b => b.name.toLowerCase().includes(term.toLowerCase()));
     this.paginateBreeds(term == '' ? this.allBreeds : filterbreeds);

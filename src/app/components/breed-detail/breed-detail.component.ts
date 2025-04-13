@@ -19,7 +19,8 @@ import { forkJoin, map } from 'rxjs';
 })
 export class BreedDetailComponent implements OnInit {
   breedName = '';
-  subBreeds: any[] = []; // Asegúrate de inicializar como un arreglo vacío
+  subBreeds: any[] = [];
+  subBreedsAux: any[] = [];
   subBreedImages: string = '';
   loading = true;
 
@@ -33,7 +34,6 @@ export class BreedDetailComponent implements OnInit {
 
     this.route.paramMap.subscribe(params => {
       this.breedName = params.get('breedName') || '';
-      console.log('Breed name from route:', this.breedName);  // Verifica el valor
       if (this.breedName) {
         this.loadSubBreeds(this.breedName);
       }
@@ -42,14 +42,14 @@ export class BreedDetailComponent implements OnInit {
   }
 
   loadSubBreeds(breed: string): void {
-    this.loading = true;  // Establecemos que está cargando
+    this.loading = true;
 
     // Primero obtenemos las subrazas
     this.dogService.getSubBreeds(breed).subscribe(
       (subBreeds) => {
-        console.log('Subrazas recibidas:', subBreeds);  // Verifica que las subrazas se recibieron correctamente
         if (subBreeds.length === 0) {
           this.subBreeds = [];
+          this.subBreedsAux = this.subBreeds;
           this.loading = false;
           return;
         }
@@ -65,20 +65,21 @@ export class BreedDetailComponent implements OnInit {
 
         forkJoin(imageRequests).subscribe(
           (results) => {
-            console.log('Resultados de imágenes:', results);  // Verifica que las imágenes lleguen correctamente
             this.subBreeds = results;
+            this.subBreedsAux = this.subBreeds;
             this.loading = false;
           },
           (error) => {
             console.error('Error en la carga de imágenes:', error);  // Imprime cualquier error que ocurra
             this.subBreeds = [];
+            this.subBreedsAux = this.subBreeds;
             this.loading = false;
           }
         );
       },
       (error) => {
-        console.error('Error al obtener subrazas:', error);  // Imprime cualquier error al obtener subrazas
         this.subBreeds = [];
+        this.subBreedsAux = this.subBreeds;
         this.loading = false;
       }
     );
@@ -102,12 +103,15 @@ export class BreedDetailComponent implements OnInit {
       ['/subbreed', breedName, subName],
       {
         queryParams: {
-          title: `Galería de ${subName}`,
-          showBackButton: true, // ejemplo de bandera
+          title: `${subName} Gallery`,
+          showBackButton: true,
         }
       }
     );
   }
 
+  onBreedSearch(term: any): void {
+    this.subBreedsAux = this.subBreeds.filter(b => b.name.toLowerCase().includes(term.toLowerCase()));
+  }
 
 }
