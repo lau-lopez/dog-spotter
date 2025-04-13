@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+
+@use '@angular/material' as mat;
+@include mat.core();
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  background: url('/assets/images/screenLigth.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: Roboto, sans-serif;
+}
+
+
+
+$dogspotter-primary: mat.define-palette(mat.$purple-palette, 600, 300, 800);
+$dogspotter-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+$dogspotter-theme: mat.define-light-theme((
+  color: (
+    primary: $dogspotter-primary,
+    accent: $dogspotter-accent,
+  ),
+  typography: mat.define-typography-config()
+));
+
+@include mat.all-component-themes($dogspotter-theme);
