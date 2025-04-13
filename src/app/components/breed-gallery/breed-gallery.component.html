@@ -1,0 +1,23 @@
+<div class="gallery-wrapper">
+
+  <div class="gallery-container">
+    <app-header></app-header>
+    <h2 class="title">Gallery of {{ breedName }}</h2>
+
+
+    <div class="card-gallery" [ngClass]="{ 'single-image': images.length === 1 }">
+      <mat-card *ngFor="let image of paginatedImages" class="image-card"  (click)="openImageDialog(image)">
+        <img mat-card-image [src]="image" alt="Imagen de {{ breedName }}" />
+      </mat-card>
+    </div>
+
+    <app-paginator
+    [length]="length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[5, 10, 20]"
+    [pageIndex]="currentPage"
+    (pageChange)="onPageChange($event)">
+  </app-paginator>
+  </div>
+</div>
+

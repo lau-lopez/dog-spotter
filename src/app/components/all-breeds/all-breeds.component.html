@@ -1,0 +1,44 @@
+<div class="main-wrapper">
+
+  <div class="all-breeds-container">
+    <app-header [searchType]="'breed'" [breedOptions]="allBreeds" (search)="onBreedSearch($event)" [showFilter] ='true'>
+    </app-header>
+
+
+
+
+    <section class="title-section">
+      <h2>Explore all dog breeds</h2>
+    </section>
+
+    <section *ngIf="!loading" class="breeds-section">
+      <div class="breed-grid">
+        <mat-card *ngFor="let breed of paginatedBreeds" class="breed-card">
+          <img [src]="breed.image" alt="{{ breed.name }}" />
+          <mat-card-content>
+            <h3>{{ breed.name | titlecase }}</h3>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button color="primary" class="action-btn gallery" (click)="viewGallery(breed.name)">
+              Gallery
+            </button>
+
+            <button mat-button color="accent" class="action-btn details" (click)="viewSubBreeds(breed.name)"
+              *ngIf="breed.subBreeds.length > 0">
+              Details
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+
+
+      <app-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" [pageIndex]="currentPage"
+        (pageChange)="onPageChange($event)">
+      </app-paginator>
+
+
+    </section>
+
+    <mat-spinner *ngIf="loading" class="spinner"></mat-spinner>
+  </div>
+</div>

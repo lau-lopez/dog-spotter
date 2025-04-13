@@ -1,0 +1,175 @@
+@use 'shared-layout.scss' as *;
+
+.all-breeds-section {
+  padding: 3rem 1rem;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #fafafa;
+  }
+
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+  }
+}
+
+.all-breeds-container {
+  position: relative;
+  z-index: 2;
+  padding: 3rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title-section {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  h2 {
+    font-size: 2.5rem;
+    color: #fafafa;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.breeds-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;     /* Centra horizontalmente */
+  align-items: center;         /* Centra verticalmente */
+  width: 100%;                  /* Asegura que ocupe todo el ancho del contenedor */
+  height: 100vh;                /* Asegura que ocupe toda la altura de la pantalla */
+  position: absolute;          /* Lo posiciona con respecto a su contenedor */
+  top: 0;
+  left: 0;
+}
+
+.breed-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); // Se asegura de tener varias columnas en pantallas grandes
+  gap: 1.5rem;
+  justify-items: center;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .breed-grid {
+    grid-template-columns: repeat(4, 1fr);  // En pantallas grandes se ajusta a 4 columnas
+  }
+}
+
+@media (max-width: 768px) {
+  .breed-grid {
+    grid-template-columns: repeat(2, 1fr);  // En pantallas medianas se ajusta a 2 columnas
+  }
+}
+
+@media (max-width: 500px) {
+  .breed-grid {
+    grid-template-columns: 1fr; // En pantallas pequeñas, solo 1 columna
+  }
+}
+
+
+/* 🟣 TARJETA INDIVIDUAL */
+.breed-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s;
+  width: 100%; // ✅ esto es importante para que la tarjeta llene su celda del grid
+  max-width: 100%;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    object-position: center;
+    border-bottom: 1px solid #eee;
+  }
+
+  mat-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  mat-card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+
+    h3 {
+      margin: 0.5rem 0 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #333;
+    }
+  }
+
+  mat-card-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1rem;
+
+    button {
+      padding: 0.5rem 1.2rem;
+      font-weight: 500;
+      border-radius: 8px;
+      text-transform: none; // Quita el uppercase si no lo deseas
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    &:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+.action-btn {
+  border-radius: 10px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1.2rem;
+}
+
+.action-btn.gallery {
+  background-color: #6a1b9a;
+  color: white !important;
+}
+
+.action-btn.details {
+  background-color: #c2185b;
+  color: white !important;
+}
+
+.action-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+

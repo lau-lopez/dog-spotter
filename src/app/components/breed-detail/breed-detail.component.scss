@@ -1,0 +1,140 @@
+.main-wrapper {
+  margin-top: 64px;  // Ajusta según la altura de tu header
+  padding: 0 1rem;  // Añadido para mejorar el padding general
+  min-height: 100vh;  // Asegura que el contenido ocupe toda la altura de la pantalla
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.home-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;  // Limitar el ancho para que no sea demasiado grande
+  margin: 0 auto;
+}
+
+.title-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.title-section h2 {
+  font-size: 2.5rem;
+  color: #fafafa;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+  margin-top: 2rem;
+}
+
+.breed-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  margin-top: 2rem;
+}
+
+.breed-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  min-height: 420px; // asegura una altura uniforme
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background-color: #f3f3f3;
+  }
+
+  mat-card-content {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    text-align: center;
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #333;
+      margin: 0;
+    }
+  }
+
+  mat-card-actions {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 1rem 1rem;
+    flex-shrink: 0;
+  }
+}
+
+
+mat-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease-in-out;
+}
+
+mat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+mat-card img[mat-card-image] {
+  object-fit: contain;
+  height: auto;
+  max-height: 250px;
+}
+.spinner {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.breed-grid.single-image,
+.breed-grid.two-images {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+
+  .breed-card {
+    max-width: 400px;
+    width: 100%;
+  }
+}
+
+.subbreed-gallery-btn {
+  background-color: #7b1fa2; // Morado oscuro
+  color: white !important;
+  border-radius: 6px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    background-color: #6a1b9a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+}
+

@@ -1,0 +1,17 @@
+<section class="preview-section">
+  <h2>Popular Breeds</h2>
+
+  <div class="breed-grid">
+    <mat-card *ngFor="let breed of previewBreeds" class="breed-card">
+      <img [src]="breed.image" alt="{{ breed.name }}" />
+      <mat-card-content>
+        <h3>{{ breed.name | titlecase }}</h3>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="see-more-btn md:hidden sticky bottom-0 z-10 bg-white/90 px-4 py-3 shadow-md">
+    <button [routerLink]="'/breeds'">Explore all dog breeds →</button>
+  </div>
+
+</section>

@@ -1,0 +1,54 @@
+.dialog-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  height: calc(100vh - 64px);
+  width: 100vw;
+  overflow: hidden;
+  padding: 2rem;
+  box-sizing: border-box;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  z-index: 1000;
+  cursor: zoom-out;
+}
+
+img {
+  max-width: 90vw;
+  max-height: 80vh;
+  margin: auto;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.close-btn {
+  position: fixed;
+  top: 72px; /* Un poco más abajo que el header */
+  right: 24px;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 1100;
+  transition: transform 0.2s ease-in-out;
+}
+
+.close-btn:hover {
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .close-btn {
+    top: 68px;
+    right: 16px;
+    font-size: 1.4rem;
+  }
+
+  img {
+    max-height: 60vh;
+  }
+}

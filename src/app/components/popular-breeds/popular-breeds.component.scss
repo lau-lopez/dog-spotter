@@ -1,0 +1,71 @@
+.preview-section {
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #fafafa;
+  }
+
+  .breed-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    padding: 0 1rem;
+
+    .breed-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: translateY(-4px);
+      }
+
+      img {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+      }
+
+      mat-card-content {
+        text-align: center;
+        padding: 0.5rem;
+
+        h3 {
+          margin: 0.5rem 0 0;
+          font-size: 1.1rem;
+          font-weight: 600;
+          color: #333;
+        }
+      }
+    }
+  }
+
+  .see-more-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+
+    button {
+      background: linear-gradient(135deg, #8e24aa, #e91e63);
+      color: white;
+      font-weight: bold;
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 999px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+
+      &:hover {
+        background: linear-gradient(135deg, #7b1fa2, #d81b60);
+        transform: translateY(-2px);
+      }
+
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+  }
+}
