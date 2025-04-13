@@ -1,0 +1,125 @@
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 64px; // Fija la altura
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  box-sizing: border-box;
+  padding-top: 10px;
+
+  .toolbar-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    margin-left: 0.5rem;
+
+    img {
+      margin-right: 0.5rem;
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    span {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .search-field {
+    width: 250px;
+    margin-right: 1rem;
+    color: white;
+  }
+
+  .back-button {
+    margin-right: 0.5rem;
+  }
+
+  .menu-left {
+    width: 80%;
+  }
+
+  .menu-left {
+    display: flex;
+    align-items: center; /* Alinea verticalmente */
+    gap: 8px; /* Espacio entre el botón y el logo */
+  }
+
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+
+    img {
+      margin-right: 4px;
+    }
+  }
+
+  .back-button {
+    margin-right: 4px;
+  }
+  .no-outline .mat-mdc-form-field-outline {
+    display: none !important;
+  }
+
+  .no-outline .mdc-notched-outline {
+    border: none !important;
+  }
+
+  .no-outline .mdc-notched-outline__leading,
+  .no-outline .mdc-notched-outline__notch,
+  .no-outline .mdc-notched-outline__trailing {
+    border: none !important;
+    display: none !important;
+  }
+
+  .no-outline .mat-mdc-form-field-infix {
+    padding: 0 !important;
+    border: none !important;
+  }
+
+  .no-outline .mat-mdc-form-field-wrapper {
+    padding: 0 !important;
+  }
+  ::ng-deep .no-outline .mat-mdc-form-field-outline,
+  ::ng-deep .no-outline .mdc-notched-outline,
+  ::ng-deep .no-outline .mdc-notched-outline__leading,
+  ::ng-deep .no-outline .mdc-notched-outline__notch,
+  ::ng-deep .no-outline .mdc-notched-outline__trailing {
+    display: none !important;
+    border: none !important;
+  }
+
+
+
+
+
+
+
+}
+
+
+
+

@@ -1,0 +1,17 @@
+::ng-deep .mat-paginator {
+  background: linear-gradient(90deg, #e0bbff, #c2e9fb); // lavanda a celeste claro
+  border-radius: 16px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  color: #4a148c; // morado oscuro
+}
+
+::ng-deep .mat-paginator .mat-paginator-range-label,
+::ng-deep .mat-paginator .mat-select-value {
+  color: #4a148c;
+}
+
+::ng-deep .mat-paginator .mat-icon-button {
+  color: #7b1fa2; // morado medio
+}

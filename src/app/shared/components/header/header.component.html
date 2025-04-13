@@ -1,0 +1,35 @@
+<mat-toolbar color="primary" class="fixed-header mat-elevation-z4">
+  <div class="toolbar-content">
+    <div class="menu-left">
+      <!-- Botón de volver -->
+      <button mat-icon-button class="back-button" (click)="goBack()" *ngIf="showBack">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+
+      <!-- Logo -->
+      <a class="logo-link" routerLink="/">
+        <img src="assets/images/dogLogo.png" alt="Logo" width="40" />
+        <span>Dog Spotter</span>
+      </a>
+
+      <span class="spacer"></span>
+    </div>
+    <div class="menu-right" *ngIf="showFilter">
+      <!-- Input de búsqueda -->
+
+      <mat-form-field appearance="outline"  class="no-outline search-field" style="background-color: white; border-radius: 2px; height: 40px;">
+        <input type="text" matInput [formControl]="searchControl" [matAutocomplete]="auto" placeholder="Search..."/>
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions$ | async" [value]="option.name">
+            {{ option.name }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+
+
+
+
+
+  </div>
+</mat-toolbar>

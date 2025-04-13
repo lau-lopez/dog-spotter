@@ -1,0 +1,80 @@
+.gallery-container {
+  position: relative;
+  z-index: 2;
+  padding: 5rem 1rem 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.gallery-wrapper {
+  margin-top: 2em;
+  overflow-y: auto;
+  position: relative;
+  padding: 3rem 1rem 5rem;
+  display: block;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+
+.title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #6a1b9a;
+}
+
+.card-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  justify-items: center; // esto centra los elementos dentro de cada celda
+}
+
+.card-gallery.single-image {
+  grid-template-columns: 1fr;
+  justify-content: center;
+
+  .image-card {
+    max-width: 400px; // o lo que consideres visualmente armónico
+    margin: 0 auto;
+  }
+}
+
+
+.image-card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease-in-out;
+  background-color: white;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  img {
+    display: block;
+  width: 100%;
+  height: 220px; // o ajusta si prefieres más alto
+  object-fit: cover;
+  aspect-ratio: 4 / 3; // ayuda a mantener proporciones
+  background-color: #f3f3f3; // opcional: fondo neutro mientras carga
+  }
+}
+
+@media (max-width: 500px) {
+  .image-card img {
+    height: 160px;
+  }
+}
+
+.mat-paginator {
+  margin-top: 2rem;
+}
